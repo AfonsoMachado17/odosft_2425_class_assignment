@@ -11,8 +11,8 @@ FE <-- BE : Authentication Response
 User <-- FE : Login Successful
 User -> FE : GET: ListPopularPosts
 FE -> BE : GET Popular Posts
-BE -> DB : SELECT All Posts
-BE <-- DB : RETURNS All Posts
-FE <-- BE : RETURNS Posts Ordered by Popularity
+BE -> DB : SELECT Popular Posts
+BE <-- DB : RETURNS Popular Posts Ordered by Popularity
+FE <-- BE : RETURNS Popular Posts
 User <-- FE : Returns Popular Posts Listed
 @enduml
