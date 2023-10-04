@@ -11,4 +11,5 @@ report.html
 
 # Gradle
 /.gradle
+/build
  

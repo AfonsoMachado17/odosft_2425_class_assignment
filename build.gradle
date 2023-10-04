@@ -9,6 +9,16 @@ node {
 }
 
 task build{
-  // script = file('scripts/gradle/build.js')
-  println "ola"
+  println "Building..."
+
+  doLast{
+    copy{
+      from 'dist'
+      into 'build'
+    }
+
+    println "Build complete"
+  }
 }
+
+build.dependsOn npm_run_build
