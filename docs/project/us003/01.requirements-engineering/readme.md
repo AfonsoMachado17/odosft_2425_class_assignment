@@ -33,7 +33,7 @@ No customer specifications, as this is an increment for a feature that's already
 * PlantUML diagram in .puml
 * Same representation on the diagram in .svg
 
-### 1.6. System Sequence Diagram (SSD)
+### 1.6. Sequence Diagram (SD)
 
 **List Popular Post Diagram.**
 
