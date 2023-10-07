@@ -15,7 +15,7 @@ services:
       - MYSQL_USER=${DDD_FORUM_DB_USER}
       - MYSQL_PASSWORD=${DDD_FORUM_DB_PASS}
 
-  adminer:  
+  adminer:
     container_name: ddd_forum_adminer
     image: adminer
     depends_on:
@@ -30,7 +30,7 @@ services:
     image: redis:latest
     expose:
       - 6379
-    ports:  
+    ports:
       - 6379:6379
 
   app:
@@ -44,7 +44,6 @@ services:
     expose:
       - 3000
       - 5001
-    ports: 
-        - 3000:3000
-        - 5001:5001
- 
+    ports:
+      - 3000:3000
+      - 5001:5001
