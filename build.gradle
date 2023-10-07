@@ -8,17 +8,21 @@ node {
   download = true
 }
 
-task build{
-  println "Building..."
+task build(type: NpxTask) {
+  doFirst{
+    println "Building..."
+
+    delete "dist"
+  }
+
+  dependsOn npmInstall
+  command = 'tsc'
+  inputs.files('package.json', 'package-lock.json', 'nodemon.json', 'tsconfig.json', 'tsconfig.app.json')
+  inputs.dir('src')
+  inputs.dir(fileTree("node_modules").exclude(".cache"))
+  outputs.dir('dist')
 
   doLast{
-    copy{
-      from 'dist'
-      into 'build'
-    }
-
-    println "Build complete"
+    println "Build Completed"
   }
 }
-
-build.dependsOn npm_run_build

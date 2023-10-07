@@ -24,7 +24,7 @@ No customer specifications, as this is an increment for the development team's p
 ### 1.4. Found out Dependencies
 
 
-* There is a dependency to Node.js plugin for Gradle 
+* There is a dependency to Node.js plugin for Gradle (https://github.com/node-gradle/gradle-node-plugin/tree/master)
 
 
 ### 1.5 Input and Output Data
@@ -37,8 +37,7 @@ No customer specifications, as this is an increment for the development team's p
 
 **Output Data:**
 
-* Build artifacts in "dist" folder for "npm run build" and "gradle npm_run_build"
-* Build artifacts in "build" folder for "gradle build"
+* Build artifacts in "dist" folder
 * CLI logs
 
 ### 1.6. System Sequence Diagram (SSD)
@@ -92,7 +91,11 @@ Only exploratory testing was made
 
 # 5. Construction (Implementation)
 
-The "npm run build" script was already built. The "gradle npm_run_build" task needed the Node.js for gradle plugin installation. The "gradle build" was created by running the "gradle npm_run_build" and copying the output files to the "build" folder.
+The "npm run build" script was already built in the "package.json" file.
+
+The "gradle npm_run_build" task needed the Node.js for gradle plugin installation. The plugin allows for npm scripts to be run through Gradle.
+
+The "gradle build" was created in build.gradle. It also depends on Node.js plugin for Gradle. Besides logging and cleaning the dist folder, it is an "NpxTask" to allow calling "npx tsc". The "tsc" dependency is the typescript compiler , used for building the application using the tsconfig.json file.
 
 # 6. Integration and Demo 
 
@@ -100,4 +103,4 @@ Not applicable
 
 # 7. Observations
 
-There are many ways to create the "gradle build" task. A more complex approach would be installing all dependencies directly from gradle, and compiling all files using typescript compiler. This would remove the npm dependency.
+Not applicable
