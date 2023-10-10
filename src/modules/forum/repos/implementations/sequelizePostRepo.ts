@@ -100,6 +100,7 @@ export class PostRepo implements IPostRepo {
     detailsQuery['order'] = [
       ['points', 'DESC'],
     ];
+    detailsQuery['limit'] = 5;
 
     const posts = await PostModel.findAll(detailsQuery);
     return posts.map((p) => PostDetailsMap.toDomain(p))
