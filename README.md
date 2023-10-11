@@ -131,6 +131,8 @@ Examples of using the API (without authentication, using postman)
 
 ### How to Run Tests
 
+  An in depth analysis of the differences in patterns for unit and API tests may be found in the project documentation, for [US 004](docs/project/us004/readme.md)
+
   To run tests type: npm run test
 
   Existing unit tests:
