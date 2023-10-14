@@ -7,13 +7,21 @@ plugins {
 * @brief A tarefa 'executeCommand' executa um script para gerar ficheiros .svg a partir de ficheiros .puml
 * @param type: tipo de tarefa a executar
 */ 
+
+
+
+
+
 task executeCommand(type: Exec) {
-    commandLine "${project.projectDir}/bin/generate-plantuml-diagrams.bat"
-    workingDir "${project.projectDir}/bin"
-    
+    def osName = System.getProperty("os.name").toLowerCase()
+
+    if (osName.contains("mac")) {
+        commandLine 'sh', "${project.projectDir}/bin/generate-plantuml-diagrams.sh"
+        workingDir "${project.projectDir}/bin"
+    } else if (osName.contains("win")) {
+        commandLine 'cmd', '/c', "${project.projectDir}/bin/generate-plantuml-diagrams.bat"
+        workingDir "${project.projectDir}/bin"
+    } else {
+        throw new GradleException("Sistema operacional não suportado.")
+    }
 }
-
-
-
-
-
